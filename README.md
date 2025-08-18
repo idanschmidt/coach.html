@@ -1,1 +1,365 @@
-# coach.html
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>שחר שמידט מאמנת | פילאטיס וליווי הריון</title>
+  <meta name="description" content="שחר שמידט – מאמנת פילאטיס וליווי נשים לפני ואחרי היריון. אימונים מותאמים אישית, שיקום רצפת האגן, הכנה ללידה וחזרה לשגרה. רשפים, עמק המעיינות." />
+  <meta name="keywords" content="שחר שמידט, פילאטיס, אימון לנשים בהריון, אחרי לידה, רצפת אגן, רשפים, עמק המעיינות, מאמנת אישית" />
+
+  <!-- Open Graph for sharing -->
+  <meta property="og:title" content="שחר שמידט מאמנת | פילאטיס וליווי הריון" />
+  <meta property="og:description" content="אימוני פילאטיס וליווי אישי לנשים לפני ואחרי היריון ברשפים ובעמק המעיינות." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/og-cover.jpg" />
+  <meta property="og:locale" content="he_IL" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fffaf7;
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --brand:#e879f9; /* pink */
+      --brand2:#60a5fa; /* blue */
+      --card:#ffffff;
+      --ring: rgba(232,121,249,0.4);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family:'Heebo', system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans Hebrew", "Open Sans", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height:1.7;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* Layout */
+    .container{width:min(1100px, 92%);margin-inline:auto}
+    header{
+      position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.8);backdrop-filter:saturate(120%) blur(8px);
+      border-bottom:1px solid #f1f5f9;
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:700}
+    .logo .badge{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;color:white;font-weight:800}
+    .nav a{padding:8px 12px;border-radius:12px}
+    .nav a:hover{background:#f8fafc}
+
+    /* Hero */
+    .hero{
+      position:relative;overflow:hidden;isolation:isolate;
+      background: radial-gradient(1200px 600px at 90% -10%, rgba(96,165,250,0.18), transparent),
+                  radial-gradient(800px 400px at 10% 10%, rgba(232,121,249,0.18), transparent);
+    }
+    .hero-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:56px 0}
+    .hero h1{font-size:clamp(28px, 4.2vw, 48px);line-height:1.15;margin:0 0 10px}
+    .hero p{font-size:clamp(16px, 2.1vw, 20px);color:var(--muted);margin:0 0 24px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:14px;font-weight:600;border:1px solid #e5e7eb;background:#fff}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:white;border:0}
+    .btn:hover{box-shadow:0 8px 18px rgba(0,0,0,0.06)}
+    .pill{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid #f1f5f9;padding:6px 10px;border-radius:999px;color:#6b7280;font-size:14px}
+
+    .hero-card{background:var(--card);border:1px solid #f1f5f9;border-radius:20px;padding:18px;box-shadow: 0 10px 30px rgba(0,0,0,0.06)}
+    .hero-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .hero-grid .tile{background:#fff;border:1px solid #eef2f7;border-radius:16px;padding:14px;display:flex;gap:10px;align-items:start}
+    .icon{width:22px;height:22px;flex:0 0 22px}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-title{font-size:28px;margin:0 0 8px}
+    .section-sub{color:var(--muted);margin:0 0 24px}
+
+    /* Services */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border:1px solid #eef2f7;border-radius:20px;padding:18px}
+    .card h3{margin:0 0 8px}
+
+    /* Testimonial */
+    .testimonial{background:#fff;border:1px solid #eef2f7;border-radius:18px;padding:18px;font-style:italic}
+
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price-card{background:#fff;border:2px solid #f1f5f9;border-radius:20px;padding:22px}
+    .price{font-size:28px;font-weight:800}
+
+    /* FAQ */
+    details{background:#fff;border:1px solid #eef2f7;border-radius:14px;padding:12px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:600}
+
+    /* Footer */
+    footer{background:#0b1220;color:#e5e7eb}
+    .foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;padding:40px 0}
+    .foot a{color:#cbd5e1}
+    .copy{border-top:1px solid #1f2937;padding:12px 0;color:#94a3b8}
+
+    /* Responsive */
+    @media (max-width: 880px){
+      .hero-wrap{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr}
+      .foot{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- JSON-LD Schema (Person/LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "שחר שמידט – מאמנת פילאטיס וליווי הריון",
+    "description": "אימוני פילאטיס לנשים, ליווי לפני ואחרי היריון, שיקום רצפת אגן והכנה ללידה.",
+    "areaServed": "עמק המעיינות",
+    "address": {"@type":"PostalAddress","addressLocality":"רשפים","addressRegion":"עמק המעיינות","addressCountry":"IL"},
+    "founder": {"@type":"Person","name":"שחר שמידט","jobTitle":"מאמנת פילאטיס"},
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="badge" aria-hidden="true">ש</div>
+        <div>
+          <div>שחר שמידט מאמנת</div>
+          <small style="color:var(--muted)">פילאטיס • ליווי היריון • אחרי לידה</small>
+        </div>
+      </div>
+      <nav aria-label="ראשי">
+        <a href="#about">עליי</a>
+        <a href="#services">שירותים</a>
+        <a href="#pricing">מחירים</a>
+        <a href="#contact" class="btn">צור קשר</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <span class="pill" aria-label="מידע אישי">
+            <!-- baby icon -->
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21c4.418 0 8-3.582 8-8 0-3.33-2.03-6.18-4.917-7.363A3.5 3.5 0 1 1 8.5 3c0 .69.206 1.333.56 1.872C5.49 5.98 4 8.322 4 11c0 4.418 3.582 8 8 8Z" stroke="currentColor" stroke-width="1.5"/></svg>
+            שחר, בת 35 • אמא לשניים ועוד אחד בדרך
+          </span>
+          <h1>פילאטיס וליווי אישי לנשים<br /> לפני, בזמן ואחרי היריון</h1>
+          <p>הדרך שלך לגוף חזק, נשימה טובה וביטחון בתנועה – באהבה מרשפים שב<strong>עמק המעיינות</strong>. אימונים אישיים וקבוצות קטנות, דגש על רצפת האגן, יציבה ושיקום עדין ובטוח.</p>
+          <div class="cta">
+            <a class="btn primary" href="#contact">קבעי שיחה ראשונה</a>
+            <a class="btn" href="#services">לראות מה מתאים לי</a>
+          </div>
+          <div style="margin-top:14px;color:var(--muted);font-size:14px">בסטודיו ביתי ברשפים וכן אפשרות להגעה אליך באזור.</div>
+        </div>
+
+        <aside class="hero-card" aria-label="הדגשים באימון">
+          <div class="hero-grid">
+            <div class="tile">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.6"/></svg>
+              <div>
+                <strong>פילאטיס נשי מותאם</strong>
+                <div style="color:var(--muted)">תנועה חכמה, חיזוק עמוק ונשימה קשובה.</div>
+              </div>
+            </div>
+            <div class="tile">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.6"/></svg>
+              <div>
+                <strong>לפני/אחרי לידה</strong>
+                <div style="color:var(--muted)">שיקום רצפת אגן, דיאסטזיס, יציבה וכאב גב.</div>
+              </div>
+            </div>
+            <div class="tile">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4L19 6" stroke="currentColor" stroke-width="1.6"/></svg>
+              <div>
+                <strong>בטוח ומבוקר</strong>
+                <div style="color:var(--muted)">מותאם שליש היריון, מצב רפואי ותחושה אישית.</div>
+              </div>
+            </div>
+            <div class="tile">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h12M4 17h8" stroke="currentColor" stroke-width="1.6"/></svg>
+              <div>
+                <strong>תוכנית אישית</strong>
+                <div style="color:var(--muted)">מטרות ברורות וליווי צמוד עד לתוצאות.</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">נעים להכיר, אני שחר</h2>
+        <p class="section-sub">מאמנת פילאטיס ומלווה נשים במסע המיוחד של לפני, בזמן ואחרי היריון. אמא לשניים ועוד אחד בדרך, כך שאני מביאה איתי גם ידע מקצועי וגם ניסיון אישי חם ומחבק.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>הגישה שלי</h3>
+            <p>תנועה קשובה, נשימה מודעת, חיזוק עמוק ועדין. כל אימון נבנה סביבך – מצב הגוף, הטרימסטר, הקשיים והיעדים שלך.</p>
+          </div>
+          <div class="card">
+            <h3>למי זה מתאים?</h3>
+            <p>לנשים בכל שלבי החיים: הכנה להיריון, שלבי ההיריון, אחרי לידה ושיקום, כולל ליווי במצבים כמו דיאסטזיס, חולשת רצפת אגן וכאבי גב/אגן.</p>
+          </div>
+          <div class="card">
+            <h3>איפה ומתי?</h3>
+            <p>סטודיו ביתי ונעים ב<strong>רשפים</strong>, עם אפשרות למפגשים בבית הלקוחה באזור <strong>עמק המעיינות</strong>. קבוצות קטנות ואימונים אישיים.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title" class="section-title">מה אני מציעה</h2>
+        <p class="section-sub">לבחירה אימונים אישיים אחד-על-אחת, זוגיים, או קבוצות קטנות – עם התאמה מלאה לשלב שבו את נמצאת.</p>
+        <div class="grid">
+          <article class="card" aria-labelledby="s1">
+            <h3 id="s1">פילאטיס לנשים</h3>
+            <p>חיזוק שרירי ליבה, יציבה נכונה, גמישות ושחרור מתחים – עם דגשים לנשיות ולמחזוריות של הגוף.</p>
+          </article>
+          <article class="card" aria-labelledby="s2">
+            <h3 id="s2">ליווי היריון והכנה ללידה</h3>
+            <p>אימון בטוח לפי טרימסטר, נשימות, מודעות אגן והכנה ליום הגדול. מענה לתופעות שכיחות במהלך ההיריון.</p>
+          </article>
+          <article class="card" aria-labelledby="s3">
+            <h3 id="s3">אחרי לידה ושיקום</h3>
+            <p>מסלול הדרגתי לחזרה לגוף חזק ובטוח – שיקום רצפת האגן, סגירת דיאסטזיס, חיזוק גב וכתפיים.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section aria-label="המלצות">
+      <div class="container">
+        <div class="testimonial">
+          "שחר עזרה לי להרגיש שוב בבית בגוף שלי אחרי הלידה. אימונים עדינים, מקצועיים ומחזקים – ממליצה בחום!" — <strong>לקוחה מעמק המעיינות</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <h2 id="pricing-title" class="section-title">מסלולים ועלויות</h2>
+        <p class="section-sub">דוגמה לניסוח – ניתן לעדכן בכל עת. המחירים כוללים ליווי ותוכנית מותאמת אישית.</p>
+        <div class="pricing">
+          <div class="price-card">
+            <h3>אימון היכרות</h3>
+            <p class="price">₪ ___</p>
+            <p>פגישה היכרות + בדיקת יציבה ותכנון מסלול אישי.</p>
+          </div>
+          <div class="price-card" style="border-color:var(--ring);box-shadow:0 0 0 6px var(--ring)">
+            <h3>אישי (חבילה 6)</h3>
+            <p class="price">₪ ___</p>
+            <p>שישה מפגשים אחד-על-אחת בסטודיו/בבית הלקוחה.</p>
+          </div>
+          <div class="price-card">
+            <h3>קבוצה קטנה</h3>
+            <p class="price">₪ ___ / מפגש</p>
+            <p>עד 5 משתתפות, קצב נעים ותשומת לב אישית.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title" class="section-title">שאלות נפוצות</h2>
+        <details>
+          <summary>האם אפשר להגיע אליי הביתה?</summary>
+          <p>כן, באזור עמק המעיינות בתיאום מראש. ישנה תוספת עלות נסיעה.</p>
+        </details>
+        <details>
+          <summary>האם האימון בטוח בהריון?</summary>
+          <p>כן. האימונים מותאמים אישית לכל טרימסטר, באישור רפואי במידת הצורך.</p>
+        </details>
+        <details>
+          <summary>אני אחרי לידה – מתי אפשר להתחיל?</summary>
+          <p>ככלל, לאחר בדיקת רופא/אחות ושישה שבועות מהלידה (או בהתאם להנחיה רפואית). נתחיל עדין ונעלה דרגה בהדרגה.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" class="section-title">בואי נדבר</h2>
+        <p class="section-sub">שיחה קצרה תעזור לנו להבין מה הכי נכון עבורך. אפשר לשלוח וואטסאפ, להתקשר או להשאיר פרטים.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>צור קשר מהיר</h3>
+            <p>
+              <a class="btn primary" href="https://wa.me/9725XXXXXXXX?text=%D7%94%D7%99%D7%99%20%D7%A9%D7%97%D7%A8%2C%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%A0%D7%94%20%D7%91%D7%90%D7%99%D7%9E%D7%95%D7%9F%20%D7%95%D7%9C%D7%99%D7%95%D7%99%20%D7%9C%D7%A4%D7%99%D7%9C%D7%90%D7%98%D7%99%D7%A1%20%D7%9C%D7%A0%D7%A9%D7%99%D7%9D" target="_blank" rel="noopener">שלחי וואטסאפ</a>
+              <a class="btn" href="tel:05XXXXXXXX">התקשרי</a>
+              <a class="btn" href="mailto:shachar@example.com?subject=%D7%AA%D7%99%D7%90%D7%95%D7%9D%20%D7%90%D7%99%D7%9E%D7%95%D7%9F">שלחי מייל</a>
+            </p>
+            <small style="color:var(--muted)">החליפי את ה-05XXXXXXXX/האימייל למספר/מייל האמיתיים.</small>
+          </div>
+          <form class="card" onsubmit="this.querySelector('button').textContent='נשלח!'; return false;" aria-label="טופס יצירת קשר">
+            <h3>טופס פנייה</h3>
+            <label>שם מלא<br>
+              <input required type="text" name="name" placeholder="הקלידי את שמך" style="width:100%;padding:10px;border-radius:10px;border:1px solid #e5e7eb">
+            </label>
+            <br>
+            <label>טלפון/וואטסאפ<br>
+              <input required type="tel" name="phone" placeholder="05x-xxxxxxx" style="width:100%;padding:10px;border-radius:10px;border:1px solid #e5e7eb">
+            </label>
+            <br>
+            <label>מה את מחפשת?<br>
+              <textarea name="msg" rows="4" placeholder="פילאטיס/ליווי היריון/שיקום אחרי לידה..." style="width:100%;padding:10px;border-radius:10px;border:1px solid #e5e7eb"></textarea>
+            </label>
+            <br>
+            <button class="btn primary" type="submit">שליחה</button>
+            <small style="display:block;margin-top:8px;color:var(--muted)">הטופס הדגמתי (לא שולח). למערכת אמיתית חברי לספק טפסים/גוגל-פורמס.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>
+        <strong>שחר שמידט מאמנת</strong>
+        <p style="margin:6px 0 0;color:#cbd5e1">פילאטיס מותאם לנשים לפני ואחרי היריון. סטודיו ביתי ברשפים, עמק המעיינות.</p>
+      </div>
+      <div>
+        <strong>ניווט מהיר</strong>
+        <ul style="list-style:none;padding:0;margin:10px 0 0">
+          <li><a href="#about">עליי</a></li>
+          <li><a href="#services">שירותים</a></li>
+          <li><a href="#pricing">מחירים</a></li>
+          <li><a href="#contact">צור קשר</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>קישורים</strong>
+        <ul style="list-style:none;padding:0;margin:10px 0 0">
+          <li><a href="#">אינסטגרם</a></li>
+          <li><a href="#">פייסבוק</a></li>
+          <li><a href="#">וייז לסטודיו</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container copy">© <span id="year"></span> שחר שמידט • כל הזכויות שמורות</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
