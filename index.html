@@ -19,7 +19,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <style>
+
+<style>
+  .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 220px; /* כל התמונות באותו גובה */
+  object-fit: cover; /* חותך עודפים במקום למתוח */
+  border-radius: 12px; /* פינות מעוגלות */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* צל עדין */
+}
+
     :root{
       --bg:#fffaf7;
       --ink:#1f2937;
@@ -224,7 +239,7 @@
     <h2 id="gallery-title" class="section-title">מהסטודיו והאימונים</h2>
     <p class="section-sub">הצצה קטנה לאווירה הנעימה במעוז חיים וברשפים</p>
     
-    <div class="grid">
+    <div class="gallery-grid">
       <div class="card">
         <img src="pilatis.jpg" alt="אימון פילאטיס במעוז חיים">
       </div>
@@ -237,6 +252,7 @@
     </div>
   </div>
 </section>
+
 
     <!-- SERVICES -->
     <section id="services" aria-labelledby="services-title">
